@@ -1,6 +1,7 @@
 package com.example.iletu;
 
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -24,6 +25,8 @@ public class MainActivity extends FragmentActivity {
     
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     	final int PAGE_COUNT = 5;
+    	private SparseArray<Fragment> frags =
+        		new SparseArray<Fragment>(PAGE_COUNT);
     	
     	public SampleFragmentPagerAdapter(){
     		super(getSupportFragmentManager());
@@ -36,14 +39,51 @@ public class MainActivity extends FragmentActivity {
     	
     	@Override
     	public Fragment getItem(int position){
-    		return PageFragment.create(position + 1);
+    		if(frags.get(position)==null)
+        		frags.put(position, create(position));
+        	return frags.get(position);
     	}
     	
     	@Override
     	public CharSequence getPageTitle(int position) {
-            return "Page " + (position + 1);
+    		switch(position){
+    		case 0: return "Announcements"; 
+    		case 1: return "Calendar";
+    		case 2: return "Saga";
+    		case 3: return "Online";
+    		case 4: return "Campus Bullet";
+    		default: return "Tab";
+    		}
+            //return "Page " + (position + 1);
         }
-    }
+    	
+    	public Fragment create(int page) {
+            Bundle args = new Bundle();
+            //args.putInt(ARG_PAGE, page);
+            Fragment fragment;
+            switch(page){
+//            case 0:
+//            	fragment = new NewsFeedFragment();
+//            	break;
+//            case 1:
+//            	fragment = new MediaFeedFragment();
+//            	break;
+//            case 2:
+//            	fragment = new CamListFragment();
+//            	break;
+//            case 3:
+//            	fragment = new PortListFragment();
+//            	break;
+//            case 4:
+//            	fragment = setupMap();
+//            	break;
+            default:
+            	fragment = new PageFragment();
+            }//end switch
+            fragment.setArguments(args);
+            return fragment;
+        }//end create
+    }//end SampleFragmentPagerAdapter
     
     public static class PageFragment extends Fragment {
     	public static final String ARG_PAGE = "ARG_PAGE";
