@@ -62,9 +62,9 @@ public class MainActivity extends FragmentActivity {
             //args.putInt(ARG_PAGE, page);
             Fragment fragment;
             switch(page){
-//            case 0:
-//            	fragment = new NewsFeedFragment();
-//            	break;
+            case 0:
+            	fragment = new NewsFeedFragment();
+            	break;
 //            case 1:
 //            	fragment = new MediaFeedFragment();
 //            	break;
