@@ -23,35 +23,34 @@ public class FeedListAdapter extends BaseAdapter{
 
 	@Override
 	public int getCount() {
-		//return messages.size();
-		return 1;
+		return messages.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		//return messages.get(position);
-		return null;
+		return messages.get(position);
+		//return null;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		//return position;
-		return 1;
+		return position;
+		//return 1;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
-		//final RssItem message = messages.get(position);
+		final RssItem message = messages.get(position);
 		if(v == null) {
 			v = li.inflate(R.layout.news_feed_list, null);
 		}
 		final TextView mTitle = (TextView) v.findViewById(R.id.mLine1);
-		//mTitle.setText(message.getTitle());
-		mTitle.setText("test title");
+		mTitle.setText(message.getTitle());
+		//mTitle.setText("test title");
 		final TextView mAddress = (TextView) v.findViewById(R.id.mLine2);
-		//mAddress.setText(message.getDescription());
-		mAddress.setText("test description");
+		mAddress.setText(message.getDescription());
+		//mAddress.setText("test description");
 		return v;
 	}
 
