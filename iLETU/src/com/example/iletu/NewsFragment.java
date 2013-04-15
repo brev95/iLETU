@@ -13,20 +13,9 @@ public class NewsFragment extends Fragment {
 	private String url;
 	ArrayAdapter<RssItem> adapter;
 	
+	//set the url for the feed
 	public void setUrl(String url) {
 		this.url = url;
-		
-		//update the adapter in the view for the new content
-		try {
-            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
-        	RssReader rssReader = new RssReader(url);
-        	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
-            
-            itcItems.setAdapter(adapter);
-            
-		} catch (Exception e) {
-            Log.e("RssReader in setUrl", e.getMessage());
-        }
 	}
 	
 	public String getUrl() {
@@ -54,7 +43,7 @@ public class NewsFragment extends Fragment {
 	            
 	            itcItems.setAdapter(adapter);
 	        } catch (Exception e) {
-	            Log.e("RssReader in onStart", e.getMessage());
+	            Log.e("RssReader", e.getMessage());
 	        }
         }
     }
