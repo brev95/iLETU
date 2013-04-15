@@ -12,6 +12,7 @@ import android.widget.ListView;
 public class NewsFragment extends Fragment {
 	private String url;
 	ArrayAdapter<RssItem> adapter;
+	RssReader rssReader;
 	
 	//set the url for the feed
 	public void setUrl(String url) {
@@ -22,6 +23,7 @@ public class NewsFragment extends Fragment {
 		return url;
 	}
 	
+	//inflates the layout xml for the news fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		return inflater.inflate(R.layout.news_fragment, container, false);
@@ -37,11 +39,12 @@ public class NewsFragment extends Fragment {
 	            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
 	            
 	            if(adapter == null) {
-	            	RssReader rssReader = new RssReader(url);
+	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
 	            }
 	            
 	            itcItems.setAdapter(adapter);
+	            itcItems.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
 	        } catch (Exception e) {
 	            Log.e("RssReader", e.getMessage());
 	        }

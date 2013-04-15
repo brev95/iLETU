@@ -78,9 +78,9 @@ public class MainActivity extends FragmentActivity {
 //            case 3:
 //            	fragment = new PortListFragment();
 //            	break;
-//            case 4:
-//            	fragment = setupMap();
-//            	break;
+            case 4:
+            	fragment = new BulletFragment();
+            	break;
             default:
             	fragment = new PageFragment();
             }//end switch

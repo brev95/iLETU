@@ -24,10 +24,11 @@ public class ListListener implements OnItemClickListener {
     /** Start a browser with url from the rss item.*/
     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
         // We create an Intent which is going to display data
-        Intent i = new Intent(Intent.ACTION_VIEW);
+        //Intent i = new Intent(Intent.ACTION_VIEW);
         // We have to set data for our new Intent
-        i.setData(Uri.parse(listItems.get(pos).getLink()));
+        //i.setData(Uri.parse(listItems.get(pos).getLink()));
         // And start activity with our Intent
-        activity.startActivity(i);
+        //activity.startActivity(i);
+    	//NewsDetailFragment();
     }
 }
