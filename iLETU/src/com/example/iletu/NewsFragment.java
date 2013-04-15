@@ -8,16 +8,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
- 
-/**
- * Main application activity.
-* @author ITCuties
-*/
+
 public class NewsFragment extends Fragment {
+	private String url;
 	ArrayAdapter<RssItem> adapter;
-    /**
-     * This method creates main application view
-     */
+	
+	public void setUrl(String url) {
+		this.url = url;
+		
+		//update the adapter in the view for the new content
+		try {
+            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
+        	RssReader rssReader = new RssReader(url);
+        	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
+            
+            itcItems.setAdapter(adapter);
+            
+		} catch (Exception e) {
+            Log.e("RssReader in setUrl", e.getMessage());
+        }
+	}
+	
+	public String getUrl() {
+		return url;
+	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -27,21 +41,21 @@ public class NewsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        try {
-            // Create RSS reader
-            // Get a ListView from main view
-            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
-            // Create a list adapter
-            if(adapter == null) {
-            	RssReader rssReader = new RssReader("http://letustartpage.blogspot.com/feeds/posts/default?alt=rss");
-            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
-            }
-            // Set list adapter for the ListView
-            itcItems.setAdapter(adapter);
-            // Set list view item click listener
-            //itcItems.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
-        } catch (Exception e) {
-            Log.e("RssReader", e.getMessage());
+        
+        //create and add the adaptor with all the correct content
+        if (url != null) {
+	        try {
+	            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
+	            
+	            if(adapter == null) {
+	            	RssReader rssReader = new RssReader(url);
+	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
+	            }
+	            
+	            itcItems.setAdapter(adapter);
+	        } catch (Exception e) {
+	            Log.e("RssReader in onStart", e.getMessage());
+	        }
         }
     }
 }
