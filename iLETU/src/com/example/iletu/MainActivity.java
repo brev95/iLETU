@@ -1,8 +1,6 @@
 package com.example.iletu;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.support.v4.app.Fragment;
@@ -12,8 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -30,7 +26,7 @@ public class MainActivity extends FragmentActivity {
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     	final int PAGE_COUNT = 5;
     	private SparseArray<Fragment> frags =
-        		new SparseArray<Fragment>(PAGE_COUNT);
+        		new SparseArray<Fragment>(PAGE_COUNT); //holds the fragments
     	
     	public SampleFragmentPagerAdapter(){
     		super(getSupportFragmentManager());
@@ -43,6 +39,8 @@ public class MainActivity extends FragmentActivity {
     	
     	@Override
     	public Fragment getItem(int position){
+    		
+    		//returns the fragment for the tab index
     		if(frags.get(position)==null)
         		frags.put(position, create(position));
         	return frags.get(position);
@@ -50,6 +48,8 @@ public class MainActivity extends FragmentActivity {
     	
     	@Override
     	public CharSequence getPageTitle(int position) {
+    		
+    		//returns the titles for each fragment
     		switch(position){
     		case 0: return "Announcements"; 
     		case 1: return "Calendar";
@@ -58,16 +58,16 @@ public class MainActivity extends FragmentActivity {
     		case 4: return "Campus Bullet";
     		default: return "Tab";
     		}
-            //return "Page " + (position + 1);
         }
     	
     	public Fragment create(int page) {
+    		
+    		//creates the fragment corresponding the the correct tab index
             Bundle args = new Bundle();
-            //args.putInt(ARG_PAGE, page);
             Fragment fragment;
             switch(page){
             case 0:
-            	fragment = new NewsFragment();
+            	fragment = new AnnouncementsFragment();
             	break;
 //            case 1:
 //            	fragment = new MediaFeedFragment();
@@ -89,6 +89,8 @@ public class MainActivity extends FragmentActivity {
         }//end create
     }//end SampleFragmentPagerAdapter
     
+    
+    //default fragment in the paging activity
     public static class PageFragment extends Fragment {
     	public static final String ARG_PAGE = "ARG_PAGE";
     	
@@ -127,34 +129,3 @@ public class MainActivity extends FragmentActivity {
     }
     
 }
-//public class MainActivity extends Activity {
-//	/** 
-//	 * This method creates main application view
-//	 */
-//	@Override
-//	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		// Set view
-//		setContentView(R.layout.main);
-//
-//		try {
-//			// Create RSS reader
-//			RssReader rssReader = new RssReader("http://www.itcuties.com/feed/");
-//			// Get a ListView from main view
-//			ListView itcItems = (ListView) findViewById(R.id.listMainView);
-//			
-//			// Create a list adapter
-//			ArrayAdapter<RssItem> adapter = new ArrayAdapter<RssItem>(this,android.R.layout.simple_list_item_1, rssReader.getItems());
-//			// Set list adapter for the ListView
-//			itcItems.setAdapter(adapter);
-//			
-//			// Set list view item click listener
-//			itcItems.setOnItemClickListener(new ListListener(rssReader.getItems(), this));
-//			
-//		} catch (Exception e) {
-//			Log.e("ITCRssReader", e.getMessage());
-//		}
-//		
-//	}
-//	
-//}
