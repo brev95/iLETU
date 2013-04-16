@@ -1,5 +1,6 @@
 package com.example.iletu;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends FragmentActivity {
+	private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter());
+        context = getApplicationContext();
     }
     
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -78,9 +81,9 @@ public class MainActivity extends FragmentActivity {
 //            case 3:
 //            	fragment = new PortListFragment();
 //            	break;
-//            case 4:
-//            	fragment = setupMap();
-//            	break;
+            case 4:
+            	fragment = new BulletFragment();
+            	break;
             default:
             	fragment = new PageFragment();
             }//end switch
@@ -118,6 +121,10 @@ public class MainActivity extends FragmentActivity {
     		textView.setText("Fragment #" + mPage);
     		return view;
     	}
+    }
+    
+    public static Context getContext() {
+    	return context;
     }
 
 
