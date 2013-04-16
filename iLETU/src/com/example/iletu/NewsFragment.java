@@ -36,15 +36,14 @@ public class NewsFragment extends Fragment {
         //create and add the adaptor with all the correct content
         if (url != null) {
 	        try {
-	            ListView itcItems = (ListView) getView().findViewById(R.id.listMainView);
+	            ListView items = (ListView) getView().findViewById(R.id.listMainView);
 	            
 	            if(adapter == null) {
 	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
 	            }
-	            
-	            itcItems.setAdapter(adapter);
-	            itcItems.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
+	            items.setAdapter(adapter);
+	            items.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
 	        } catch (Exception e) {
 	            Log.e("RssReader", e.getMessage());
 	        }
