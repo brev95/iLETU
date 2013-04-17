@@ -28,8 +28,6 @@ public class IntramuralFragment extends Fragment{
 	            return (false);
 	        }
 		});
-		wv.getSettings().setBuiltInZoomControls(true);
-        wv.getSettings().setSupportZoom(true);
 		
         org.jsoup.nodes.Document doc;
 		try {
