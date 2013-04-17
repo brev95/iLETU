@@ -1,6 +1,5 @@
 package com.example.iletu;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.Menu;
@@ -8,14 +7,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 
 public class MainActivity extends FragmentActivity {
-	private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +17,10 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter());
-        context = getApplicationContext();
     }
     
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    	final int PAGE_COUNT = 5;
+    	final int PAGE_COUNT = 6;
     	private SparseArray<Fragment> frags =
         		new SparseArray<Fragment>(PAGE_COUNT); //holds the fragments
     	
@@ -59,6 +52,7 @@ public class MainActivity extends FragmentActivity {
     		case 2: return "Saga";
     		case 3: return "Online";
     		case 4: return "Campus Bullet";
+    		case 5: return "Intramurals";
     		default: return "Tab";
     		}
         }
@@ -83,6 +77,9 @@ public class MainActivity extends FragmentActivity {
 //            	break;
             case 4:
             	fragment = new BulletFragment();
+            	break;
+            case 5:
+            	fragment = new IntramuralFragment();
             	break;
             default:
             	fragment = new PageFragment();
@@ -113,18 +110,14 @@ public class MainActivity extends FragmentActivity {
     		mPage = getArguments().getInt(ARG_PAGE);
     	}
     	
-    	@Override
-    	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-    			Bundle savedInstanceState) {
-    		View view = inflater.inflate(R.layout.fragment_page, container, false);
-    		TextView textView = (TextView)view;
-    		textView.setText("Fragment #" + mPage);
-    		return view;
-    	}
-    }
-    
-    public static Context getContext() {
-    	return context;
+//    	@Override
+//    	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//    			Bundle savedInstanceState) {
+//    		View view = inflater.inflate(R.layout.fragment_page, container, false);
+//    		TextView textView = (TextView)view;
+//    		textView.setText("Fragment #" + mPage);
+//    		return view;
+//    	}
     }
 
 

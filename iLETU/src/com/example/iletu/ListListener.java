@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 public class ListListener implements OnItemClickListener {
     // Our listener will contain a reference to the list of RSS Items

@@ -17,6 +17,7 @@ public class RssParseHandler extends DefaultHandler {
     // indicators showing what is currently being parsed
     private boolean parsingTitle;
     private boolean parsingLink;
+    private boolean parsingDescription;
  
     public RssParseHandler() {
         rssItems = new ArrayList<RssItem>();
@@ -36,6 +37,8 @@ public class RssParseHandler extends DefaultHandler {
             parsingTitle = true;
         } else if ("link".equals(qName)) {
             parsingLink = true;
+        } else if ("description".equals(qName)) {
+        	parsingDescription = true;
         }
     }
     
@@ -49,6 +52,8 @@ public class RssParseHandler extends DefaultHandler {
             parsingTitle = false;
         } else if ("link".equals(qName)) {
             parsingLink = false;
+        } else if ("description".equals(qName)) {
+        	parsingDescription = false;
         }
     }
     
@@ -63,6 +68,11 @@ public class RssParseHandler extends DefaultHandler {
                 currentItem.setLink(new String(ch, start, length));
                 parsingLink = false;
             }
+        } else if(parsingDescription) {
+        	if (currentItem != null){
+        		currentItem.setDescription(new String(ch,start,length));
+        		parsingDescription = false;
+        	}
         }
     }
 }
