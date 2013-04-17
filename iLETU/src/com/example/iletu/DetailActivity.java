@@ -23,4 +23,10 @@ public class DetailActivity extends Activity{
 		dView.setText(intent.getExtras().getString("description"));
 		//lView.setText(intent.getExtras().getString("link"));
 	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		super.onDestroy();
+	}
 }
