@@ -69,12 +69,12 @@ public class MainActivity extends FragmentActivity {
             Bundle args = new Bundle();
             Fragment fragment;
             switch(page){
-            case 0:
-            	fragment = new AnnouncementsFragment();
-            	break;
-//            case 1:
-//            	fragment = new MediaFeedFragment();
+//            case 0:
+//            	fragment = new AnnouncementsFragment();
 //            	break;
+            case 1:
+            	fragment = new CalenderFragment();
+            	break;
 //            case 2:
 //            	fragment = new CamListFragment();
 //            	break;

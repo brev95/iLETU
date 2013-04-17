@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 public class ListListener implements OnItemClickListener {
     // Our listener will contain a reference to the list of RSS Items
@@ -23,6 +22,7 @@ public class ListListener implements OnItemClickListener {
  
     /** Start a browser with url from the rss item.*/
     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+    	
         //create an Intent which is going to display data
         Intent i = new Intent(view.getContext(), DetailActivity.class);
         //send title, description, and link of rssItem to activity

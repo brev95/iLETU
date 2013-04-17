@@ -17,10 +17,10 @@ public class DetailActivity extends Activity{
 		
 		tView = (TextView) findViewById(R.id.title);
 		dView = (TextView) findViewById(R.id.details);
-		lView = (TextView) findViewById(R.id.link);
+		//lView = (TextView) findViewById(R.id.link);
 		
 		tView.setText(intent.getExtras().getString("title"));
 		dView.setText(intent.getExtras().getString("description"));
-		lView.setText(intent.getExtras().getString("link"));
+		//lView.setText(intent.getExtras().getString("link"));
 	}
 }
