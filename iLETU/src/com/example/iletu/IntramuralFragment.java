@@ -1,5 +1,10 @@
 package com.example.iletu;
 
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,7 +30,19 @@ public class IntramuralFragment extends Fragment{
 		});
 		wv.getSettings().setBuiltInZoomControls(true);
         wv.getSettings().setSupportZoom(true);
-		wv.loadUrl(url);
+		
+        org.jsoup.nodes.Document doc;
+		try {
+			doc = Jsoup.connect(url).get();
+			Elements ele = doc.select("div#divGameSearchResult");
+			String html = ele.toString();
+			String mime = "text/html";
+			String encoding = "utf-8";
+			wv.loadData(html, mime, encoding);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
 		return view;
 	}
 }

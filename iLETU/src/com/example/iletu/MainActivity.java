@@ -69,9 +69,9 @@ public class MainActivity extends FragmentActivity {
             case 1:
             	fragment = new CalenderFragment();
             	break;
-//            case 2:
-//            	fragment = new CamListFragment();
-//            	break;
+            case 2:
+            	fragment = new SagaFragment();
+            	break;
 //            case 3:
 //            	fragment = new PortListFragment();
 //            	break;
