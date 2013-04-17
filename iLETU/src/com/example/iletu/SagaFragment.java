@@ -24,9 +24,6 @@ public class SagaFragment extends Fragment {
 		//set up the view and the webview
 		View view = (View)inflater.inflate(R.layout.web_view_fragment, container, false);
 		wv = (WebView) view.findViewById(R.id.webview);
-		
-		wv.getSettings().setBuiltInZoomControls(true);
-        wv.getSettings().setSupportZoom(true);
 		wv.setWebViewClient(new WebViewClient(){
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
