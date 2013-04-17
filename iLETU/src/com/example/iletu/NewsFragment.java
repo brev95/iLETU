@@ -41,9 +41,9 @@ public class NewsFragment extends Fragment {
 	            if(adapter == null) {
 	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
-		            items.setAdapter(adapter);
 		            items.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
 	            }
+	            items.setAdapter(adapter);
 	        } catch (Exception e) {
 	            Log.e("RssReader", e.getMessage());
 	        }
