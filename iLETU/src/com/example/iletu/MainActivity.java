@@ -63,9 +63,9 @@ public class MainActivity extends FragmentActivity {
             Bundle args = new Bundle();
             Fragment fragment;
             switch(page){
-//            case 0:
-//            	fragment = new AnnouncementsFragment();
-//            	break;
+            case 0:
+            	fragment = new AnnouncementsFragment();
+            	break;
             case 1:
             	fragment = new CalenderFragment();
             	break;

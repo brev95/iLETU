@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class IntramuralFragment extends Fragment{
-	private String url = "http://www.imleages.com";
+	private String url = "http://www.imleagues.com/School/Portal.aspx?SchID=39d7b8cb08db465ab4f27a061607a7c4&Portal=SchOfDay";
 	private WebView wv;
 	
 	@Override
