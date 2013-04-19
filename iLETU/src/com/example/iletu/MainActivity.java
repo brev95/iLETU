@@ -16,11 +16,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(new SampleFragmentPagerAdapter());
     }
     
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    	final int PAGE_COUNT = 6;
+    	final int PAGE_COUNT = 5;
     	private SparseArray<Fragment> frags =
         		new SparseArray<Fragment>(PAGE_COUNT); //holds the fragments
     	
@@ -52,7 +53,7 @@ public class MainActivity extends FragmentActivity {
     		case 2: return "Saga";
     		case 3: return "Online";
     		case 4: return "Campus Bullet";
-    		case 5: return "Intramurals";
+    		//case 5: return "Intramurals";
     		default: return "Tab";
     		}
         }
@@ -78,9 +79,10 @@ public class MainActivity extends FragmentActivity {
             case 4:
             	fragment = new BulletFragment();
             	break;
-            case 5:
-            	fragment = new IntramuralFragment();
-            	break;
+//            case 5:
+//            	fragment = new IntramuralFragment();
+//            	fragment = new PageFragment();
+//            	break;
             default:
             	fragment = new PageFragment();
             }//end switch

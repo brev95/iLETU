@@ -28,8 +28,10 @@ public class LinksFragment extends Fragment {
 			linkItems.add(new LinkItem("Email","https://mail.letu.edu"));
 			linkItems.add(new LinkItem("BlackBoard", "https://courses.letu.edu"));
 			linkItems.add(new LinkItem("Web Services", "https://my.letu.edu:91/_formauth/login.html"));
-			linkItems.add(new LinkItem("Student Directory", "https://my.letu.edu:94/_formauth/login.html"));
+			//linkItems.add(new LinkItem("Student Directory", "https://my.letu.edu:94/_formauth/login.html"));
+			linkItems.add(new LinkItem("Student Directory", "http://www.letu.edu/opencms/opencms/homepage-links/student-resources/studir.lnk"));
 			linkItems.add(new LinkItem("Chapel Attendance", "http://www.letu.edu/student_life/chapel/attendance.html"));
+			linkItems.add(new LinkItem("IM Leagues", "http://www.imleagues.com/School/Portal.aspx?SchID=39d7b8cb08db465ab4f27a061607a7c4&Portal=SchOfDay"));
         }
         ListView items = (ListView) getView().findViewById(R.id.linksMainView);
         items.setOnItemClickListener(new LinkListListener(linkItems,getActivity()));
