@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class NewsFragment extends Fragment {
+	ListListener listener;
 	private String url;
 	ArrayAdapter<RssItem> adapter;
 	RssReader rssReader;
@@ -41,8 +42,9 @@ public class NewsFragment extends Fragment {
 	            if(adapter == null) { 
 	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
-		            items.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));
+		            listener = new ListListener(rssReader.getItems(), getActivity());
 	            }
+	            items.setOnItemClickListener(listener);
 	            items.setAdapter(adapter);
 	        } catch (Exception e) {
 	            Log.e("RssReader", e.getMessage());

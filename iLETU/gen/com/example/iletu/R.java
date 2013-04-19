@@ -26,7 +26,11 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f080009;
         public static final int details=0x7f080003;
+<<<<<<< HEAD
         public static final int linksMainView=0x7f080004;
+=======
+        public static final int image_view=0x7f080004;
+>>>>>>> f9ecd99aba831861a41d30a5fade7785ba82cf70
         public static final int listMainView=0x7f080005;
         public static final int mLine1=0x7f080006;
         public static final int mLine2=0x7f080007;
