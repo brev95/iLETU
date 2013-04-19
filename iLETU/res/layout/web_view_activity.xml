@@ -4,10 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <ListView
-        android:id="@+id/linksMainView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </ListView>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" /> 
 
 </LinearLayout>

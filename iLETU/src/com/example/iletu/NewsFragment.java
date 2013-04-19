@@ -38,7 +38,7 @@ public class NewsFragment extends Fragment {
 	        try {
 	            ListView items = (ListView) getView().findViewById(R.id.listMainView);
 	            
-	            if(adapter == null) {
+	            if(adapter == null) { 
 	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());
 		            items.setOnItemClickListener(new ListListener(rssReader.getItems(), getActivity()));

@@ -64,7 +64,7 @@ public class MainActivity extends FragmentActivity {
             Fragment fragment;
             switch(page){
             case 0:
-            	fragment = new AnnouncementsFragment();
+            	fragment = new LinksFragment();
             	break;
             case 1:
             	fragment = new CalenderFragment();
@@ -72,9 +72,9 @@ public class MainActivity extends FragmentActivity {
             case 2:
             	fragment = new SagaFragment();
             	break;
-//            case 3:
-//            	fragment = new PortListFragment();
-//            	break;
+            case 3:
+            	fragment = new LinksFragment();
+            	break;
             case 4:
             	fragment = new BulletFragment();
             	break;
