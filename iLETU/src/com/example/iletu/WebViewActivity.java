@@ -26,6 +26,8 @@ public class WebViewActivity extends Activity {
 		});
 		wView.getSettings().setBuiltInZoomControls(true);
         wView.getSettings().setSupportZoom(true);
+        wView.getSettings().setJavaScriptEnabled(true);
+        wView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         
         wView.loadUrl(intent.getExtras().getString("url"));
 	}

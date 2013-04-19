@@ -19,9 +19,14 @@ public class LinkListListener implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		Intent i = new Intent(view.getContext(), WebViewActivity.class);
-        i.putExtra("title", listItems.get(pos).title);
-        i.putExtra("url", listItems.get(pos).url);
-        activity.startActivity(i);
+		if(pos == 5) {
+			Intent i = new Intent(view.getContext(), IntramuralActivity.class);
+			activity.startActivity(i);
+		} else {
+			Intent i = new Intent(view.getContext(), WebViewActivity.class);
+	        i.putExtra("title", listItems.get(pos).title);
+	        i.putExtra("url", listItems.get(pos).url);
+	        activity.startActivity(i);
+		}
 	}
 }
