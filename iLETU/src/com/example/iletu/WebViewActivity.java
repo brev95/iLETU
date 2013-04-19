@@ -27,9 +27,6 @@ public class WebViewActivity extends Activity {
 		wView.getSettings().setBuiltInZoomControls(true);
         wView.getSettings().setSupportZoom(true);
         
-        String mime = "text/html";
-		String encoding = "utf-8";
-		
         wView.loadUrl(intent.getExtras().getString("url"));
 	}
 	
