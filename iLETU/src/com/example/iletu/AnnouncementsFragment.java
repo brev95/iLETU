@@ -19,7 +19,7 @@ public class AnnouncementsFragment extends Fragment {
 	AnnouncementXMLParser parser = new AnnouncementXMLParser();
 	private String url;
 	ArrayAdapter<RssItem> adapter;
-	ListListener listener;
+	AnnouncementListListener listener;
 	
 	//set the url for the feed
 	public void setUrl(String url) {
@@ -50,7 +50,7 @@ public class AnnouncementsFragment extends Fragment {
 	            	URL urlLink = new URL(url);
 	            	urlLink.openConnection();
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, parser.parse(urlLink.openStream()));
-		            listener = new ListListener(parser.parse(urlLink.openStream()), getActivity());
+		            listener = new AnnouncementListListener(parser.parse(urlLink.openStream()), getActivity());
 	            }
 	            items.setOnItemClickListener(listener);
 	            items.setAdapter(adapter);
