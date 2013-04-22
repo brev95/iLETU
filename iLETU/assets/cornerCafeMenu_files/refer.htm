@@ -1,0 +1,36 @@
+
+<!-- saved from url=(0032)http://www.stumbleupon.com/refer -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css"></style></head>
+<body>
+<a href="http://www.stumbleupon.com/refer.php">Click here to learn why you are seeing referrals from this page.</a>
+<script>
+function init() {
+    window.addEventListener("message", function(event) {
+        // Extract the host and make sure it matches our host
+        var regex = /^https?:\/\/([^\/]*?)(\/|$)/;
+        var match = event.origin.match(regex);
+        if (!match)
+            return;
+        var srcHost  = match[1];
+
+        if (srcHost != document.location.host)
+            return;
+        if (!event.data || !event.data.type)
+            return;
+
+        if ((event.data.type == "NAVIGATE") && event.data.url) {
+            window.top.location = event.data.url;
+        } else if((event.data.type == "PRERENDER") && event.data.url) {
+            link = document.createElement("link");
+            link.setAttribute("href", event.data.url);
+            link.setAttribute("rel", "prerender");
+            document.head.appendChild(link);
+        }
+    });
+};
+
+init();
+</script>
+
+<script src="chrome-extension://kcahibnffhnnjcedflmchmokndkjnhpg/extensionapi.js"></script></body><script src="chrome-extension://kcahibnffhnnjcedflmchmokndkjnhpg/messaging_correlator.js"></script><script src="chrome-extension://kcahibnffhnnjcedflmchmokndkjnhpg/extconnect_wp.js"></script></html>
