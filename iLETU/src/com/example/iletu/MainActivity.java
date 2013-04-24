@@ -10,21 +10,28 @@ import android.support.v4.view.ViewPager;
 
 public class MainActivity extends FragmentActivity {
 
-    @Override
+    //sets what to be done when app first opened
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //inflates the main activity layout xml
         setContentView(R.layout.activity_main);
+        //sets viewpager which controls tab interface
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(4);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter());
+        //sets viewpageradapter to return proper fragments to each tab
+        viewPager.setAdapter(new MyFragmentPagerAdapter());
     }
     
-    public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
+	//page adapter controls which fragments to show in each tab of main view
+    public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+    	//sets number of pages
     	final int PAGE_COUNT = 5;
+    	//array of all fragments
     	private SparseArray<Fragment> frags =
         		new SparseArray<Fragment>(PAGE_COUNT); //holds the fragments
     	
-    	public SampleFragmentPagerAdapter(){
+    	public MyFragmentPagerAdapter(){
     		super(getSupportFragmentManager());
     	}
     	
@@ -33,18 +40,19 @@ public class MainActivity extends FragmentActivity {
     		return PAGE_COUNT;
     	}
     	
+    	//creates a new fragment to fill tab if one doesn't already exist. if it does,
+    	//it returns the fragment in the sparse array
     	@Override
     	public Fragment getItem(int position){
-    		
     		//returns the fragment for the tab index
     		if(frags.get(position)==null)
         		frags.put(position, create(position));
         	return frags.get(position);
     	}
     	
+    	//sets the names of each tab
     	@Override
     	public CharSequence getPageTitle(int position) {
-    		
     		//returns the titles for each fragment
     		switch(position){
     		case 0: return "Announcements"; 
@@ -52,13 +60,11 @@ public class MainActivity extends FragmentActivity {
     		case 2: return "Saga";
     		case 3: return "Online";
     		case 4: return "Campus Bullet";
-    		//case 5: return "Intramurals";
     		default: return "Tab";
     		}
         }
     	
     	public Fragment create(int page) {
-    		
     		//creates the fragment corresponding the the correct tab index
             Bundle args = new Bundle();
             Fragment fragment;
@@ -78,10 +84,6 @@ public class MainActivity extends FragmentActivity {
             case 4:
             	fragment = new BulletFragment();
             	break;
-//            case 5:
-//            	fragment = new IntramuralFragment();
-//            	fragment = new PageFragment();
-//            	break;
             default:
             	fragment = new PageFragment();
             }//end switch
@@ -95,7 +97,6 @@ public class MainActivity extends FragmentActivity {
     public static class PageFragment extends Fragment {
     	public static final String ARG_PAGE = "ARG_PAGE";
     	
-    	private int mPage;
     	
     	public static PageFragment create(int page) {
     		Bundle args = new Bundle();
@@ -108,25 +109,6 @@ public class MainActivity extends FragmentActivity {
     	@Override
     	public void onCreate(Bundle savedInstanceState) {
     		super.onCreate(savedInstanceState);
-    		mPage = getArguments().getInt(ARG_PAGE);
     	}
-    	
-//    	@Override
-//    	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//    			Bundle savedInstanceState) {
-//    		View view = inflater.inflate(R.layout.fragment_page, container, false);
-//    		TextView textView = (TextView)view;
-//    		textView.setText("Fragment #" + mPage);
-//    		return view;
-//    	}
     }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-    
 }

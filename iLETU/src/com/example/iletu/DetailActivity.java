@@ -12,6 +12,10 @@ import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/*
+ * this class is opened whenever a calendar or campus bullet item from listview is clicked.
+ * it contains a view for a title, details, and an imageview for a campus bullet picture
+ */
 public class DetailActivity extends Activity{
 	Intent intent;
 	TextView tView, dView, lView;
@@ -27,20 +31,22 @@ public class DetailActivity extends Activity{
 		setContentView(R.layout.detail_activity);
 		intent = getIntent();
 		
+		//inflates the textviews from the activity layout xml
 		tView = (TextView) findViewById(R.id.title);
 		dView = (TextView) findViewById(R.id.details);
-		//lView = (TextView) findViewById(R.id.link);
 		
+		//gets title, link, and description from the listener that called it
 		tView.setText(intent.getExtras().getString("title"));
 		dView.setText(intent.getExtras().getString("description"));
 		link = intent.getExtras().getString("link");
 		
+		//initializes imageview and gets the post number of the campus bullet item
 		imgView =(ImageView)findViewById(R.id.image_view);
 		baseUrl= "http://www.campusbullet.net/images/posts/?q=";
 		postNum = link.substring(38);
-		//lView.setText(link);
 		
 		try {
+			//tries to get the image of an item from campus bullet
 			finalUrl = baseUrl+postNum+"-1";
 			url = new URL(finalUrl);
 			if(URLUtil.isValidUrl(finalUrl)); {
@@ -52,12 +58,14 @@ public class DetailActivity extends Activity{
 		}
 	}
 	
+	//destroys activity on backpress to save memory
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
 		super.onDestroy();
 	}
 	
+	//creates a drawable object from the url to post image 
 	private Drawable LoadImageFromWeb(URL url) {
 		try {
 			in = (InputStream)url.getContent();

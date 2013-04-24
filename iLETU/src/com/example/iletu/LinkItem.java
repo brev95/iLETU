@@ -1,5 +1,9 @@
 package com.example.iletu;
 
+/*
+ * basic item for each list of links in fragments of app.
+ * contains the title and url of each item.
+ */
 public class LinkItem {
 	public String title, url;
 	

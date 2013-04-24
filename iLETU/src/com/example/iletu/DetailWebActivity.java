@@ -7,6 +7,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+/*
+ * activity is called by links in the online fragment.
+ * contains a webview that loads the url sent to it by the clicklistener of list items
+ */
 public class DetailWebActivity extends Activity {
 	Intent intent;
 	TextView tView;
@@ -19,9 +23,11 @@ public class DetailWebActivity extends Activity {
 		setContentView(R.layout.detail_web_activity);
 		intent = getIntent();
 		
+		//inflates the text and weview from activity layout xml
 		tView = (TextView) findViewById(R.id.title);
 		wv = (WebView) findViewById(R.id.webview);
 		
+		//gets title from listener that called it
 		tView.setText(intent.getExtras().getString("title"));
 		
 		//create the webview
@@ -38,6 +44,7 @@ public class DetailWebActivity extends Activity {
         wv.loadData(intent.getExtras().getString("description"), mime, encoding);
 	}
 	
+	//destroys the activity on backpress to save memory
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();

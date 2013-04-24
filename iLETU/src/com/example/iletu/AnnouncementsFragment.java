@@ -12,10 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class AnnouncementsFragment extends Fragment {
-//	public AnnouncementsFragment() {
-//		super();
-//		setUrl("http://letustartpage.blogspot.com/feeds/posts/default?alt=rss");
-//	}
+	
 	AnnouncementXMLParser parser = new AnnouncementXMLParser();
 	private String url;
 	ArrayAdapter<RssItem> adapter;
@@ -33,6 +30,7 @@ public class AnnouncementsFragment extends Fragment {
 	//inflates the layout xml for the news fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		//inflates the news fragment layout xml
 		return inflater.inflate(R.layout.news_fragment, container, false);
 	}
 	
@@ -52,10 +50,11 @@ public class AnnouncementsFragment extends Fragment {
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, parser.parse(urlLink.openStream()));
 		            listener = new AnnouncementListListener(parser.parse(urlLink.openStream()), getActivity());
 	            }
+	            //sets onclick listener as the announcementlistlistener
 	            items.setOnItemClickListener(listener);
 	            items.setAdapter(adapter);
 	        } catch (Exception e) {
-	            //Log.e("RssReader", e.getMessage());
+	        	//send something to console?
 	        }
         }
     }

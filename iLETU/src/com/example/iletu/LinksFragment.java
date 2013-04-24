@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/*
+ * fragment view of online links for the main activity
+ * contains list of available links which have custom-set onclicklistener
+ */
 public class LinksFragment extends Fragment {
 	List<LinkItem> linkItems;
 
