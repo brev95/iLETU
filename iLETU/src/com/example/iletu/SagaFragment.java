@@ -1,7 +1,6 @@
 package com.example.iletu;
 
 import java.io.IOException;
-import java.net.URL;
 
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
@@ -41,16 +40,14 @@ public class SagaFragment extends Fragment {
 				html = ele.toString();
 				String mime = "text/html";
 				String encoding = "utf-8";
-				//wv.loadData(html, mime, encoding);
-				wv.loadUrl("file:///android_asset/newMenu.html");
+				wv.loadData(html, mime, encoding);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			String mime = "text/html";
 			String encoding = "utf-8";
-			//wv.loadData(html, mime, encoding);
-			wv.loadUrl("file:///android_asset/newMenu.html");
+			wv.loadData(html, mime, encoding);
 		}
 		return view;
 	}
