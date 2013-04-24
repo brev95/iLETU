@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/*
+ * fragment that shows all announcement items in a listview.
+ * sets announcementslistlistener as the onclick listener for the list
+ */
+
 public class AnnouncementsFragment extends Fragment {
 	
 	AnnouncementXMLParser parser = new AnnouncementXMLParser();

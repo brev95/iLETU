@@ -4,6 +4,10 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+/*
+ * gets feed items from rss and sends to parser and returns list of items
+ */
+
 public class RssReader {
     private String rssUrl;
    

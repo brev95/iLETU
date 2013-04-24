@@ -15,6 +15,7 @@ import android.webkit.WebViewClient;
 
 /*
  * CURRENTLY NOT IN USE
+ * Replaced by intramural link in online fragment
  */
 public class IntramuralFragment extends Fragment{
 	private String url = "http://www.imleagues.com/School/Portal.aspx?SchID=39d7b8cb08db465ab4f27a061607a7c4&Portal=SchOfDay";

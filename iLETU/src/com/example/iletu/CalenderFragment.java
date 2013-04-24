@@ -1,6 +1,7 @@
 package com.example.iletu;
 
-/*sets url of the rss feed from letu calendar site.
+/*
+ * sets url of the rss feed from letu calendar site.
  * displays all items in listview
  */
 public class CalenderFragment extends NewsFragment {

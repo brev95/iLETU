@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-//activity for viewing webpages
+/*
+ * activity for viewing webpages.
+ */
 public class WebViewActivity extends Activity {
 	Intent intent;
 	WebView wView;

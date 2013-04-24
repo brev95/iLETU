@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/*
+ * parent class of announcements, calendar, and campusbullet fragments.
+ * handles the parsing object and listener
+ */
+
 public class NewsFragment extends Fragment {
 	ListListener listener;
 	private String url;
@@ -39,6 +44,7 @@ public class NewsFragment extends Fragment {
 	        try {
 	            ListView items = (ListView) getView().findViewById(R.id.listMainView);
 	            
+	            //sets adapter and onclick listener of listview in fragment
 	            if(adapter == null) { 
 	            	rssReader = new RssReader(url);
 	            	adapter = new ArrayAdapter<RssItem>(getActivity(),android.R.layout.simple_list_item_1, rssReader.getItems());

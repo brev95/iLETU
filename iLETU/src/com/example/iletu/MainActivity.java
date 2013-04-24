@@ -1,3 +1,11 @@
+/*
+ * Andrew Pollard and Aidan Wolter
+ * Personal Project
+ * COSC2103
+ * 4/23/2013
+ * Android version of iLETU app
+ */
+
 package com.example.iletu;
 
 import android.os.Bundle;
@@ -6,7 +14,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-
 
 public class MainActivity extends FragmentActivity {
 

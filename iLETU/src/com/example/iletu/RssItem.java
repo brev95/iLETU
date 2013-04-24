@@ -1,7 +1,10 @@
 package com.example.iletu;
 
+/*
+ * a single rss data item.
+ * contains the link, title, and description associated with rss feed item
+ */
 
-//a single rss data item
 public class RssItem {
 	private String title, link;
 	private String description;

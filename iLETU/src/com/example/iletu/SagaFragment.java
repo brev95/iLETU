@@ -12,6 +12,12 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+/*
+ * displays the week's menu from saga.
+ * downloads html from menu website and extracts html code for only the menu.
+ * new parsed html is then displayed in a webview.
+ */
+
 public class SagaFragment extends Fragment {
 	private String url = "http://www.cafebonappetit.com/menu/your-cafe/letu/cafes/details/147";
 	private WebView wv;

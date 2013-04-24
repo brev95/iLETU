@@ -6,6 +6,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/*
+ * this class will parse a source and return a list of RssItems with the data
+ */
 public class RssParseHandler extends DefaultHandler {
  
     // all items parsed

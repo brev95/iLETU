@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/*
+ * custom onclick listener to bring up detail activity when announcement is clicked on
+ */
+
 public class AnnouncementListListener implements OnItemClickListener {
 	List<RssItem> listItems;
     Activity activity;
