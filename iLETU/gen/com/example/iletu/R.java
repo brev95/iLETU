@@ -25,16 +25,15 @@ public final class R {
         public static final int iletu_icon=0x7f020001;
     }
     public static final class id {
-        public static final int about_app=0x7f08000b;
+        public static final int about_app=0x7f08000a;
         public static final int details=0x7f080003;
         public static final int image_view=0x7f080004;
         public static final int linksMainView=0x7f080006;
-        public static final int listMainView=0x7f080008;
-        public static final int mLine1=0x7f080009;
-        public static final int mLine2=0x7f08000a;
+        public static final int listMainView=0x7f080007;
+        public static final int mLine1=0x7f080008;
+        public static final int mLine2=0x7f080009;
         public static final int pager=0x7f080000;
         public static final int pager_header=0x7f080001;
-        public static final int progressbar=0x7f080007;
         public static final int title=0x7f080002;
         public static final int webview=0x7f080005;
     }
@@ -44,12 +43,11 @@ public final class R {
         public static final int detail_web_activity=0x7f030002;
         public static final int fragment_page=0x7f030003;
         public static final int links_fragment=0x7f030004;
-        public static final int loading_screen=0x7f030005;
-        public static final int main=0x7f030006;
-        public static final int news_feed_list=0x7f030007;
-        public static final int news_fragment=0x7f030008;
-        public static final int web_view_activity=0x7f030009;
-        public static final int web_view_fragment=0x7f03000a;
+        public static final int main=0x7f030005;
+        public static final int news_feed_list=0x7f030006;
+        public static final int news_fragment=0x7f030007;
+        public static final int web_view_activity=0x7f030008;
+        public static final int web_view_fragment=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f070000;
