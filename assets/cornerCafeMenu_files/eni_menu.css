@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+/* customer menu item page 
+------------------------------------- */
+#right .inner .content .three-quarters .left .account-cafe .tab-panels .menu table, #right .inner .content .three-quarters .left .account-cafe .tab-panels .menu td {
+	border: none;
+	vertical-align: top;
+}
+
+#right .inner .content .three-quarters .left .account-cafe .tab-panels .menu  .eni-menu-facts td {
+	padding: 0px;
+	padding: 2px;
+	padding-left: 8px;
+	font-size: 1em;
+}
+
+.eni-menu-price{
+	float: right;
+	margin-right: 1.5em;
+}
+
+.eni-menu-item-score{
+	width: 45px;
+}
+
+.eni-day-menu td{
+	border: none;
+}
+
+.eni-menu-well-being{
+	vertical-align: top;
+}
+
+.eni-menu-station td{
+	background-color: lightyellow;
+}
+
+.eni-menu-calories{
+    color: #E27E00;
+    font-size: 1.2em;
+}
+
+.eni-menu-nutrition-info{
+    border-top: 1px solid #ccc;
+	padding-top: .25em;
+	margin-top: .25em;
+	/* padding-left: 1em; */
+    font-size: 10px;
+}
+
+#right .inner .content .three-quarters .left .account-cafe .tab-panels .menu  table.eni-menu-facts{
+
+    margin-top: 1em;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+
+#right .inner .content .three-quarters .left .account-cafe .tab-panels .menu .eni-menu-nutrition-info td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.eni-menu-description{
+	width: 80%;
+}
+
+.eni-menu-more-info img.eni-menu-item-score{
+	border: 1px solid white;
+}
+
+.eni-menu-more-info:hover img.eni-menu-item-score{
+	border: 1px solid white;
+}
