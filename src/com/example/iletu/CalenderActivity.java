@@ -15,7 +15,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-public class MainActivity extends FragmentActivity {
+public class CalenderActivity extends FragmentActivity {
 
     //sets what to be done when app first opened
 	@Override
@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity {
 	//page adapter controls which fragments to show in each tab of main view
     public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     	//sets number of pages
-    	final int PAGE_COUNT = 5;
+    	final int PAGE_COUNT = 3;
     	//array of all fragments
     	private SparseArray<Fragment> frags =
         		new SparseArray<Fragment>(PAGE_COUNT); //holds the fragments
@@ -62,11 +62,9 @@ public class MainActivity extends FragmentActivity {
     	public CharSequence getPageTitle(int position) {
     		//returns the titles for each fragment
     		switch(position){
-    		case 0: return "Announcements"; 
-    		case 1: return "Calendar";
-    		case 2: return "Saga";
-    		case 3: return "Online";
-    		case 4: return "Campus Bullet";
+    		case 0: return "Calender"; 
+    		case 1: return "YAC";
+    		case 2: return "Athletics";
     		default: return "Tab";
     		}
         }
@@ -75,23 +73,15 @@ public class MainActivity extends FragmentActivity {
     		//creates the fragment corresponding the the correct tab index
             Bundle args = new Bundle();
             Fragment fragment;
-            //Activity activity;
             switch(page){
             case 0:
-            	fragment = new AnnouncementsFragment();
+            	fragment = new CalenderFragment();
             	break;
             case 1:
-            	fragment = new CalenderFragment();
-            	//activity = new CalenderActivity();
+            	//fragment = new YACFragment();
             	break;
             case 2:
-            	fragment = new SagaFragment();
-            	break;
-            case 3:
-            	fragment = new LinksFragment();
-            	break;
-            case 4:
-            	fragment = new BulletFragment();
+            	//fragment = new AthleticsFragment();
             	break;
             default:
             	fragment = new PageFragment();
