@@ -15,7 +15,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+/*
 public class CalenderActivity extends FragmentActivity {
+
 
     //sets what to be done when app first opened
 	@Override
@@ -86,9 +88,10 @@ public class CalenderActivity extends FragmentActivity {
             default:
             	fragment = new PageFragment();
             }//end switch
-            fragment.setArguments(args);
-            return fragment;
+            //fragment.setArguments(args);
+            //return fragment;
         }//end create
+        
     }//end SampleFragmentPagerAdapter
     
     
@@ -111,3 +114,4 @@ public class CalenderActivity extends FragmentActivity {
     	}
     }
 }
+*/
